@@ -17,7 +17,7 @@
 
 #define IGNORE_STRING	"NULL"
 
-#define FILE_RETRY_SEC	5
+#define FILE_RETRY_SEC	2
 
 
 extern "C" {

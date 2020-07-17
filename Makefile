@@ -1,7 +1,7 @@
 PWD=$(shell pwd)
 
 CXX:=g++-9
-CXXFLAGS = -O0 -g -fsanitize=address
+CXXFLAGS =-O3  #-O0 -g -fsanitize=address
 
 
 RELEASE_DIR=$(PWD)

@@ -1,4 +1,4 @@
-function [X,W,squic_info]=SQUIC(Y,lambda_scalar_in,lambda_matrix_in,max_iter_in,drop_tol_in,term_tol_in,verbose_in)
+function [X,W,squic_info]=SQUIC(Y,lambda,X_pattern,max_iter_in,drop_tol_in,term_tol_in,verbose_in)
 
 % This is the ignore text for optional inputs
 IGNORE='NULL';
@@ -11,6 +11,7 @@ mkdir(CWD);
 % [integer:p] Number of random variables
 % [integer:n] Number of samples.
 [n,p]=size(Y); % data must be saved as nxp matrix
+
 save(strcat(CWD,'/Y.dat'),'Y','-ascii');
 
 % [string:Y_loc] Input loc/of/file/Y.dat
@@ -18,14 +19,13 @@ Y_loc=strcat(CWD,'/Y.dat');
 
 % [double:lambda] Scalar lambda value.
 % [string:LambdaMatrix_loc] loc/of/file/LambdaMatrix.dat
-lambda=lambda_scalar_in;
+lambda=lambda;
 
-
-if(numel(lambda_matrix_in)==0)
+if(numel(X_pattern)==0)
     LambdaMatrix_loc=IGNORE;
 else
     LambdaMatrix_loc=strcat(CWD,'/lambda_matrix.dat');
-    [row,col,v] = find(lambda_matrix_in);
+    [row,col,v] = find(X_pattern);
     dlmwrite(LambdaMatrix_loc,[col,row,v], 'delimiter', '\t');
 end
 
@@ -79,9 +79,7 @@ log_loc, ...
 ];
 
 %Execute call
-pause(1)
 system(cmd);
-pause(1)
 
 % Load save data & Convert to sparse matrix
 load(strcat(CWD,'/X.dat'),'Y','-ascii');
