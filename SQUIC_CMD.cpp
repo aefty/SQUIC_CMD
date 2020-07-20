@@ -203,7 +203,6 @@ int main(int argc, char* argv[]) {
 	}
 	Y_file.close();
 
-
 	int* X0_ij;
 	double* X0_val;
 	int X0_nnz;
@@ -226,7 +225,6 @@ int main(int argc, char* argv[]) {
 
 	int* IGNORE_I;
 	double* IGNORE_D;
-
 
 	// stat variables
 	int     stat_niters;
@@ -365,14 +363,6 @@ int main(int argc, char* argv[]) {
 		exit(0);
 	}
 
-
-//	std::cout << "X_nnz_sym:" << X_nnz << std::endl;
-//	std::cout  << "W_nnz_sym:" << W_nnz << std::endl;
-
-
-//	for (int i = 0; i < X_nnz; ++i) {
-//		std::cout << X_ij[2 * i] << " " << X_ij[2 * i + 1] << " " << X_val[i] << std::endl;
-//	}
 
 	write_COO_Mat(X_loc, X_ij, X_val, X_nnz, index_offset);
 	write_COO_Mat(W_loc, W_ij, W_val, W_nnz, index_offset);

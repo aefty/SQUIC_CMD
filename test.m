@@ -3,7 +3,6 @@ clear all;
 close all
 rng(2);
 
-
 time_squic=[];
 time_squic_core=[];
 time_quic=[];
@@ -57,7 +56,6 @@ for p=p_set;
     err_quic(end+1)=sum(sum(abs(X_QUIC-iCov)));
     
 end
-
 
 figure
 subplot(1,2,1)
