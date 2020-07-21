@@ -55,7 +55,7 @@ for i=1:length(DATA.p_set);
         disp('SQUIC')
         tic
         [X,W,squic_info]=SQUIC(Y,lambda_scalar,lambda_matrix,max_iter,drop_tol,term_tol,verbose_in);
-        time_squic(j,i)=toc
+        DATA.time_squic(j,i)=toc
         
         DATA.time_squic_core(j,i)=squic_info.time_total
         
