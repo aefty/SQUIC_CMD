@@ -19,3 +19,4 @@
 # ignore test direcotry
 SQUIC_TEMP*/
 *~
+.DS_Store
